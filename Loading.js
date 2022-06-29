@@ -16,10 +16,10 @@ export function Loading(props: any) {
     try {
       const jsonValue = await AsyncStorage.getItem('@cred');
        if(jsonValue != null){
-        props.navigate('AppStack')
+        props.navigation.navigate('AppStack')
        }
         else{
-          props.navigate('AuthStack');
+          props.navigation.navigate('AuthStack');
         }
         
       console.log(jsonValue);

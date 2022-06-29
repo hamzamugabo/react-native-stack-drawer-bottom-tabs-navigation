@@ -40,8 +40,9 @@ export function LoginView(props: any) {
       const value = await AsyncStorage.getItem('@cred')
       if(value !== null) {
           console.log(JSON.parse(value));
-          if(JSON.parse(value.email)==email && JSON.parse(value.email)==password){
-              this.props.navigation.navigate('Home');
+          console.log(email);
+          if(JSON.parse(value).email==email && JSON.parse(value).pass==password){
+              props.navigation.navigate('Home');
           }else{
             Toast.show('Wrong login creditials');
           }
@@ -74,7 +75,7 @@ export function LoginView(props: any) {
         </View>
 
 
-        <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => onClickListener('login')}>
+        <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={getData}>
           <Text style={styles.loginText}>Login</Text>
         </TouchableHighlight>
 
@@ -82,7 +83,7 @@ export function LoginView(props: any) {
             <Text>Forgot your password?</Text>
         </TouchableHighlight>
 
-        <TouchableHighlight style={styles.buttonContainer} onPress={() => onClickListener('register')}>
+        <TouchableHighlight style={styles.buttonContainer} onPress={() => props.navigation.navigate('Register')}>
             <Text>Register</Text>
         </TouchableHighlight>
       </View>

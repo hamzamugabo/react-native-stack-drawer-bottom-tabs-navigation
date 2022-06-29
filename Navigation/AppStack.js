@@ -18,6 +18,7 @@ export function AppStack(props: any) {
       backgroundColor:COLORS.button,
       gestureDirection: 'horizontal',
       ...TransitionPresets.SlideFromRightIOS,
+      headerShown: false
     }}
     // initialRouteName="Dashboard" headerMode="none"
     >

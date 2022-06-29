@@ -40,15 +40,19 @@ export default function App() {
   };
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+      >
        {cred? 
        <Stack.Screen name="AppStack" component={AppStack} /> :
           <Stack.Screen name="Auth" component={AuthStack} /> }
        
         {/* <Stack.Screen name="ContactScreen" component={ContactScreen} /> */}
-         {/* <Stack.Screen name="Loading" component={Loading} />
+         <Stack.Screen name="Loading" component={Loading} />
          <Stack.Screen name="Home" component={MainScreen} />
-        <Stack.Screen name="Root" component={Root} /> */}
+        <Stack.Screen name="Root" component={Root} />
         {/* <Stack.Screen name="Login" component={LoginView} />
         <Stack.Screen name="Register" component={Register} /> */}
       </Stack.Navigator>

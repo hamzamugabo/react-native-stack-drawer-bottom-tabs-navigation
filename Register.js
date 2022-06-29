@@ -9,6 +9,7 @@ import {
   Image,
   Alert
 } from 'react-native';
+import Toast from 'react-native-simple-toast';
 import AsyncStorage from '@react-native-community/async-storage';
 export function Register(props: any) {
 
@@ -38,6 +39,9 @@ export function Register(props: any) {
     try {
         const jsonValue = JSON.stringify(value)
         await AsyncStorage.setItem('@cred', jsonValue)
+        Toast.show('Registered');
+        props.navigation.navigate('Login')
+
       } catch (e) {
         // saving error
       }
@@ -72,16 +76,16 @@ export function Register(props: any) {
               onChangeText={(password) => setpassword(password)}/>
         </View>
 
-        <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => onClickListener('login')}>
-          <Text style={styles.loginText}>Login</Text>
+        <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={_storeData}>
+          <Text style={styles.loginText}>Register</Text>
         </TouchableHighlight>
 
         <TouchableHighlight style={styles.buttonContainer} onPress={() => onClickListener('restore_password')}>
             <Text>Forgot your password?</Text>
         </TouchableHighlight>
 
-        <TouchableHighlight style={styles.buttonContainer} onPress={() => onClickListener('register')}>
-            <Text>Register</Text>
+        <TouchableHighlight style={styles.buttonContainer} onPress={() => props.navigation.navigate('Login')}>
+            <Text>Back to login</Text>
         </TouchableHighlight>
       </View>
     );

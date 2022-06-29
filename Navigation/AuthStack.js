@@ -19,7 +19,9 @@ export function AuthStack(props: any) {
       backgroundColor:COLORS.button,
       gestureDirection: 'horizontal',
       ...TransitionPresets.SlideFromRightIOS,
+      headerShown: false
     }}
+    
     initialRouteName="Login" headerMode="none">
         <Stack.Screen name="Login" component={LoginView} />
         <Stack.Screen name="Register" component={Register} />
